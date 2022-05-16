@@ -1,7 +1,9 @@
 import React from "react";
 import APILink from "./APILink.js";
+import Logo from "./assets/Knoldus-logo.png";
 
 const Sidebar = (props) => {
+  debugger;
   let organizationConfig = props.organizationConfig;
   let apiLinks = [];
 
@@ -9,7 +11,8 @@ const Sidebar = (props) => {
     props.getOrganizationData(organizationConfig.orgName);
   } else {
     for (let i = 0; i < props.definitionList.length; i++) {
-      if (props.definitionList[i].properties[4].value === "true") {
+      debugger;
+      if (props.definitionList[i].properties[1].value === "true") {
         apiLinks.push(
           <APILink
             key={i}
@@ -21,10 +24,12 @@ const Sidebar = (props) => {
     }
   }
 
+  console.log(apiLinks);
+
   return (
     <div className="side-bar">
       <div className="side-bar-header">
-        <img src={organizationConfig.displayImage} alt="logo" />
+        <img src={Logo} alt="logo" />
         <h1>{organizationConfig.displayName}</h1>
         <h3>{organizationConfig.displayTag}</h3>
       </div>

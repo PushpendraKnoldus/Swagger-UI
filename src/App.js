@@ -4,6 +4,7 @@ import SwaggerUI from "swagger-ui";
 import Config from "./organization_config.json";
 import Sidebar from "./Sidebar.js";
 import "../node_modules/swagger-ui/dist/swagger-ui.css";
+import { mockData } from "./APIURL";
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +61,7 @@ class App extends Component {
 
     this.swaggerhub("GET", inputResource, inputParams).then((response) => {
       this.setState({
-        definitionList: response.apis,
+        definitionList: mockData,
       });
     });
   }
